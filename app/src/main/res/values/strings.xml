@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Ghayrat Samiev</string>
-    <string name="uploadMap">Upload Map</string>
-    <string name="wardriving">Wardriving</string>
-    <string name="localization">Localization</string>
+    <string name="addition"> 5 + 10 = </string>
+    <string name="answer">answer</string>
+    <string name="incorrectTextMessage">Sorry the answer is not correct</string>
+    <string name="hint_answer">Input answer:</string>
+    <string name="correct_answer">Congratulations. The answer is correct</string>
 </resources>

@@ -6,50 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--    <TextView-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Upload Map"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="188dp"
-        android:elevation="12dp"
-        android:text="@string/uploadMap"
-        android:textAllCaps="false"
+        android:text="@string/addition"
+        android:layout_marginTop="32dp"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck"
-        tools:text="Upload Map" />
+        app:layout_constraintVertical_bias="0.002" />
+
+    <EditText
+        android:hint="@string/hint_answer"
+        android:id="@+id/editTextNumber"
+        android:layout_width="match_parent"
+        android:layout_marginTop="32dp"
+
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonAnswer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/wardriving"
-        android:textAllCaps="false"
+        android:layout_margin="8dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/answer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewIncorrectAnswer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:text="@string/localization"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="VisualLintOverlap" />
+        android:layout_margin="8dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="8dp"
+        android:background="#FF0000"
+        android:padding="24dp"
+        android:visibility="gone"
+        android:text="@string/incorrectTextMessage"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAnswer" />
+
+    <TextView
+        android:id="@+id/correctAnswer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="8dp"
+        android:background="#4CAF50"
+        android:padding="24dp"
+        android:visibility="gone"
+        android:text="@string/correct_answer"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAnswer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
