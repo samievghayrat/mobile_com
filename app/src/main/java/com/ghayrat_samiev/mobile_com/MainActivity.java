@@ -1,5 +1,4 @@
 package com.ghayrat_samiev.mobile_com;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,16 +30,19 @@ public class MainActivity extends AppCompatActivity {
         _wardriving_button = findViewById(R.id.wardriving_button);
         localization = findViewById(R.id.localization_button);
 
+        ShowDialog = findViewById(R.id.wardriving_button);
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.pop_ip_dialog_screen);
+        dialog.setCancelable(true); //Optional
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
         ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
                 registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
-                    // Callback is invoked after the user selects a media item or closes the
-                    // photo picker.
+
                     if (uri != null) {
                         Log.d("PhotoPicker", "Selected URI: " + uri);
                         image_view.setImageURI(uri);
                         image_view.setVisibility(View.VISIBLE);
-
-
 
                     } else {
                         Log.d("PhotoPicker", "No media selected");
@@ -56,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 _wardriving_button.setVisibility(View.VISIBLE);
                 delete_button.setVisibility(View.VISIBLE);
                 localization.setVisibility(View.VISIBLE);
-
-
-
 
             }
         });
@@ -76,11 +75,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ShowDialog = findViewById(R.id.wardriving_button);
-        dialog = new Dialog(this);
-        dialog.setContentView(R.layout.pop_ip_dialog_screen);
-        dialog.setCancelable(true); //Optional
-        dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
 
         ShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
