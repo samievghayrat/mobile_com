@@ -11,7 +11,7 @@
 
     <Button
         android:id="@+id/delete_data"
-        android:layout_width="240dp"
+        android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="120dp"
         android:includeFontPadding="false"
@@ -27,22 +27,7 @@
 
     <Button
         android:id="@+id/see_the_data"
-        android:layout_width="240dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="160dp"
-        android:includeFontPadding="false"
-        android:text="@string/see_the_data_label"
-        android:textAllCaps="false"
-        android:textSize="14dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextSizeCheck" />
-
-    <Button
-        android:id="@+id/see_the_data2"
-        android:layout_width="240dp"
+        android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="160dp"
         android:includeFontPadding="false"
@@ -57,7 +42,7 @@
 
     <Button
         android:id="@+id/add_new_wifi"
-        android:layout_width="240dp"
+        android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:includeFontPadding="false"
@@ -74,7 +59,7 @@
 
     <Button
         android:id="@+id/cancel_button"
-        android:layout_width="240dp"
+        android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="204dp"
         android:includeFontPadding="false"
