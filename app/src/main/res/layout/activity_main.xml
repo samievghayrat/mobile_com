@@ -61,7 +61,6 @@
         android:layout_height="45dp"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="16dp"
-
         android:text="@string/localization_label"
         android:textAllCaps="false"
         android:textSize="14dp"
@@ -72,6 +71,8 @@
 
     <ImageView
         android:id="@+id/imageView"
+        android:layout_marginTop="50dp"
+        android:paddingTop="20dp"
         android:layout_width="400dp"
         android:layout_height="500dp"
         android:padding="8dp"
