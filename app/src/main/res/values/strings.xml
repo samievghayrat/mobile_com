@@ -17,4 +17,5 @@
     <string name="go_back_bool_label">Would you like to go back</string>
     <string name="_yes">Yes</string>
     <string name="_no">No</string>
+    <string name="what_would_you_like">What would you like to do for this location?</string>
 </resources>
