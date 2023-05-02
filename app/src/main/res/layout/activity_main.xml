@@ -7,76 +7,80 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/addition"
-        android:layout_marginTop="32dp"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <Button
+        android:id="@+id/upload_map_button"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        android:text="@string/upload_map_label"
+        android:textSize="11dp"
+        android:visibility="gone"
+        app:layout_constraintLeft_toRightOf="@id/wardriving_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.002" />
-
-    <EditText
-        android:hint="@string/hint_answer"
-        android:id="@+id/editTextNumber"
-        android:layout_width="match_parent"
-        android:layout_marginTop="32dp"
-
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonAnswer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="200dp"
-        android:text="@string/answer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:id="@+id/delete_button"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        android:text="@string/delete_map_label"
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@id/wardriving_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewIncorrectAnswer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="8dp"
-        android:background="#FF0000"
-        android:padding="24dp"
-        android:visibility="gone"
-        android:text="@string/incorrectTextMessage"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="48sp"
+    <Button
+        android:id="@+id/wardriving_button"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/wardriving_label"
+
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAnswer" />
+        app:layout_constraintLeft_toRightOf="@+id/delete_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/correctAnswer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="8dp"
-        android:background="#4CAF50"
-        android:padding="24dp"
-        android:visibility="gone"
-        android:text="@string/correct_answer"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="48sp"
+    <Button
+        android:id="@+id/localization_button"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="16dp"
+
+        android:text="@string/localization_label"
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@+id/wardriving_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:padding="8dp"
+        android:src="@drawable/mobile_computing_map"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAnswer" />
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wardriving_button"
 
 
+        app:layout_constraintVertical_bias="0.1"
+        app:srcCompat="@drawable/mobile_computing_map"
+        tools:srcCompat="@drawable/mobile_computing_map" />
 </androidx.constraintlayout.widget.ConstraintLayout>

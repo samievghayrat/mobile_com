@@ -5,4 +5,8 @@
     <string name="incorrectTextMessage">Sorry the answer is not correct</string>
     <string name="hint_answer">Input answer:</string>
     <string name="correct_answer">Congratulations. The answer is correct</string>
+    <string name="delete_map_label">Delete Map</string>
+    <string name="wardriving_label">Wardriving</string>
+    <string name="localization_label">Localization</string>
+    <string name="upload_map_label">Upload Map</string>
 </resources>
