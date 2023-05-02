@@ -9,4 +9,12 @@
     <string name="wardriving_label">Wardriving</string>
     <string name="localization_label">Localization</string>
     <string name="upload_map_label">Upload Map</string>
+    <string name="add_new_wifi_data_label">Add new Wifi data</string>
+    <string name="delete_wifi_data_label">Delete data</string>
+    <string name="see_the_data_label">See the data</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="saved_aps">Saved APs</string>
+    <string name="go_back_bool_label">Would you like to go back</string>
+    <string name="_yes">Yes</string>
+    <string name="_no">No</string>
 </resources>
