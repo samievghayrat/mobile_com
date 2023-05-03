@@ -1,4 +1,5 @@
 package com.ghayrat_samiev.mobile_com;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
