@@ -1,5 +1,4 @@
 package com.ghayrat_samiev.mobile_com;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,17 +9,14 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     private Dialog dialog;
     private View ShowDialog;
     ImageView image_view;
     View delete_button;
     View _wardriving_button;
     View localization;
-    ConstraintLayout main_layout;
 
 
     @Override
@@ -33,8 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         delete_button = findViewById(R.id.delete_button);
         _wardriving_button = findViewById(R.id.wardriving_button);
         localization = findViewById(R.id.localization_button);
-
-        main_layout.findViewById(R.id.imageView);
 
         ShowDialog = findViewById(R.id.wardriving_button);
         dialog = new Dialog(this);
@@ -68,21 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        @Override
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    float x = motionEvent.getX();
-                    float y = motionEvent.getY();
-
-                    DotView dotView = new DotView(this, Color.RED, x, y);
-                    mainLayout.addView(dotView);
-
-                    return true;
-            }
-            return false;
-        }
-
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
+
 
         ShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
