@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -26,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
     //pages
     Intent scanned_aps_page;
     private Intent would_you_page;
+
+    private void addDot(float x, float y) {
+        View dotView = new View(this);
+        dotView.setLayoutParams(new ViewGroup.LayoutParams(16, 16));
+        dotView.setBackgroundResource(R.drawable.circle);
+        dotView.setX(x - 8);
+        dotView.setY(y - 8);
+        ViewGroup rootView = findViewById(android.R.id.content);
+        rootView.addView(dotView);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,12 +111,7 @@ public class MainActivity extends AppCompatActivity {
         //would you like to scan popUp
         View inflatedView = getLayoutInflater().inflate(would_you_like_to_scan, null);
         View scan_yes = inflatedView.findViewById(R.id.scan_yes);
-        scan_yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(scanned_aps_page);
-            }
-        });
+
 
         //wardriving page
         _wardriving_button.setOnClickListener(new View.OnClickListener() {
@@ -124,10 +130,44 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
+      View mDotView = findViewById(R.id.imageView);
+
         image_view.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
                 dialog.show();
+                float x = v.getX() + v.getWidth() / 2;
+                float y = v.getY() + v.getHeight() / 2;
+
+                // Create a new view to represent the dot
+                View dotView = new View(MainActivity.this);
+                dotView.setBackgroundResource(R.drawable.circle);
+                dotView.setLayoutParams(new ViewGroup.LayoutParams(24, 24));
+                dotView.setX(x - 24 / 2);
+                dotView.setY(y - 24 / 2);
+                addDot(x, y);
+
+                // Add the dot view to the layout
+                //mDotView.addView(dotView);
+
             }
         });
-}}
+
+//
+//        ImageButton dotView = findViewById(R.id.imageView);
+//        dotView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Add your logic here to handle the click
+//                // For example, you can add another dot at the clicked position
+//                // by creating a new View and setting its position
+//                float x = v.getX() + v.getWidth() / 2;
+//                float y = v.getY() + v.getHeight() / 2;
+//                addDot(x, y);
+//            }
+//        });
+
+
+
+    }}

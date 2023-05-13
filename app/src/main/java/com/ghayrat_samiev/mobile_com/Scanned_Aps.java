@@ -2,6 +2,7 @@ package com.ghayrat_samiev.mobile_com;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
@@ -28,6 +29,8 @@ public class Scanned_Aps extends AppCompatActivity {
     private WifiManager wifiManager;
     private List<String> wifiNetworks = new ArrayList<>();
 
+    View yes;
+    View no;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,27 @@ public class Scanned_Aps extends AppCompatActivity {
 
 //         LayoutInflater inflater = LayoutInflater.from(this); // or use your activity context
 //         View _wifiListView = inflater.inflate(R.layout.scanned_aps_page, null);
+
+        yes = findViewById(R.id.scan_yes_label);
+        no = findViewById(R.id.scan_no_label);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            Intent intent = new Intent(Scanned_Aps.this, MainActivity.class);
+
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            Intent intent = new Intent(Scanned_Aps.this, MainActivity.class);
+
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
 
         wifiListView = findViewById(R.id.listView);
 

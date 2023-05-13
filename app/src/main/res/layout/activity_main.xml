@@ -84,10 +84,21 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wardriving_button"
-
-
         app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/mobile_computing_map"
         tools:srcCompat="@drawable/mobile_computing_map" />
 
+<!--    <View-->
+<!--        android:id="@+id/dotView"-->
+<!--        android:layout_width="16dp"-->
+<!--        android:layout_marginTop="300dp"-->
+<!--        android:layout_marginLeft="50dp"-->
+<!--        android:layout_height="16dp"-->
+<!--        android:background="@color/red"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.454"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/wardriving_button"-->
+<!--        tools:layout_editor_absoluteX="124dp"-->
+<!--        tools:layout_editor_absoluteY="268dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
