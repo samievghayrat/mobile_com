@@ -22,8 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-public class Scanned_Aps extends AppCompatActivity {
-
+public class SavedAps extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
     private ListView wifiListView;
     private WifiManager wifiManager;
@@ -34,16 +33,15 @@ public class Scanned_Aps extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scanned_aps_page);
+        setContentView(R.layout.saved_aps_layout);
 
 //         LayoutInflater inflater = LayoutInflater.from(this); // or use your activity context
 //         View _wifiListView = inflater.inflate(R.layout.scanned_aps_page, null);
 
         yes = findViewById(R.id.scan_yes_label);
-        no = findViewById(R.id.scan_no_label);
 
         yes.setOnClickListener(new View.OnClickListener() {
-            Intent intent = new Intent(Scanned_Aps.this, MainActivity.class);
+            Intent intent = new Intent(SavedAps.this, MainActivity.class);
 
             @Override
             public void onClick(View view) {
@@ -51,14 +49,7 @@ public class Scanned_Aps extends AppCompatActivity {
             }
         });
 
-        no.setOnClickListener(new View.OnClickListener() {
-            Intent intent = new Intent(Scanned_Aps.this, MainActivity.class);
 
-            @Override
-            public void onClick(View view) {
-                startActivity(intent);
-            }
-        });
 
         wifiListView = findViewById(R.id.listView);
 

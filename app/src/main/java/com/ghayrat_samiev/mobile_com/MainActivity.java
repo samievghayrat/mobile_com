@@ -13,6 +13,7 @@ import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.ghayrat_samiev.mobile_com.R.layout.add_wifi_pop_up;
 import static com.ghayrat_samiev.mobile_com.R.layout.would_you_like_to_scan;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     View _wardriving_button;
     View localization;
 
-
+    View see_the_data_;
     //pages
     Intent scanned_aps_page;
     private Intent would_you_page;
@@ -51,6 +52,28 @@ public class MainActivity extends AppCompatActivity {
         delete_button = findViewById(R.id.delete_button);
         _wardriving_button = findViewById(R.id.wardriving_button);
         localization = findViewById(R.id.localization_button);
+
+
+        View inflatedLayout = getLayoutInflater().inflate(add_wifi_pop_up, null);
+
+// Find the button within the inflated layout
+         see_the_data_ = inflatedLayout.findViewById(R.id.see_the_data);
+
+         see_the_data_.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+
+             }
+         });
+// Now you can use the button object to set listeners or perform other actions
+        see_the_data_.setOnClickListener(new View.OnClickListener() {
+            Intent savedAps = new Intent(MainActivity.this, SavedAps.class);
+            @Override
+            public void onClick(View v) {
+                startActivity(savedAps);
+                // Do something when the button is clicked
+            }
+        });
 
         //Dialogs
         Dialog dialog = new Dialog(this);
@@ -110,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
         //would you like to scan popUp
         View inflatedView = getLayoutInflater().inflate(would_you_like_to_scan, null);
-        View scan_yes = inflatedView.findViewById(R.id.scan_yes);
 
 
         //wardriving page
@@ -125,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
        localization.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               startActivity(scanned_aps_page);
+//               startActivity(scanned_aps_page);
+
 
            }
        });
@@ -143,9 +166,9 @@ public class MainActivity extends AppCompatActivity {
                 // Create a new view to represent the dot
                 View dotView = new View(MainActivity.this);
                 dotView.setBackgroundResource(R.drawable.circle);
-                dotView.setLayoutParams(new ViewGroup.LayoutParams(24, 24));
-                dotView.setX(x - 24 / 2);
-                dotView.setY(y - 24 / 2);
+                dotView.setLayoutParams(new ViewGroup.LayoutParams(15, 15));
+                dotView.setX(x - 15 / 2);
+                dotView.setY(y - 15 / 2);
                 addDot(x, y);
 
                 // Add the dot view to the layout
