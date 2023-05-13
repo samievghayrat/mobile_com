@@ -1,28 +1,50 @@
 package com.ghayrat_samiev.mobile_com;
+
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.ghayrat_samiev.mobile_com.R.layout.would_you_like_to_scan;
+
 public class MainActivity extends AppCompatActivity {
-    private Dialog dialog;
-    private View ShowDialog;
-    ImageView image_view;
+    //private  Dialog wold_you_lie_to_scan;
+    //buttons
+    ImageButton image_view;
     View delete_button;
     View _wardriving_button;
     View localization;
 
 
+    //pages
+    Intent scanned_aps_page;
+    private Intent would_you_page;
+
+    private void addDot(float x, float y) {
+        View dotView = new View(this);
+        dotView.setLayoutParams(new ViewGroup.LayoutParams(16, 16));
+        dotView.setBackgroundResource(R.drawable.circle);
+        dotView.setX(x - 8);
+        dotView.setY(y - 8);
+        ViewGroup rootView = findViewById(android.R.id.content);
+        rootView.addView(dotView);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+       // LayoutInflater inflater = LayoutInflater.from(); // or use your activity context
+       // View would_you_like_to_scan_layout = inflater.inflate(would_you_like_to_scan, null);
 
         image_view = findViewById(R.id.imageView);
         View imagePicker_button = findViewById(R.id.upload_map_button);
@@ -30,11 +52,16 @@ public class MainActivity extends AppCompatActivity {
         _wardriving_button = findViewById(R.id.wardriving_button);
         localization = findViewById(R.id.localization_button);
 
-        ShowDialog = findViewById(R.id.wardriving_button);
-        dialog = new Dialog(this);
-        dialog.setContentView(R.layout.pop_ip_dialog_screen);
+        //Dialogs
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.add_wifi_pop_up);
         dialog.setCancelable(true); //Optional
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
+//        wold_you_lie_to_scan = new Dialog(this);
+//        wold_you_lie_to_scan.setContentView(would_you_like_to_scan);
+//        wold_you_lie_to_scan.setCancelable(true); //Optional
+//        wold_you_lie_to_scan.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
 
         ActivityResultLauncher<PickVisualMediaRequest> pickMedia =
                 registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
@@ -48,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("PhotoPicker", "No media selected");
                     }
                 });
+
+        //iamge picker
         imagePicker_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -62,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Activities page
+        scanned_aps_page = new Intent(MainActivity.this, Scanned_Aps.class);
+        would_you_page = new Intent(MainActivity.this, popUp_would_you_like.class);
+
+        //delete image
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,15 +108,66 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //would you like to scan popUp
+        View inflatedView = getLayoutInflater().inflate(would_you_like_to_scan, null);
+        View scan_yes = inflatedView.findViewById(R.id.scan_yes);
 
 
-        ShowDialog.setOnClickListener(new View.OnClickListener() {
+        //wardriving page
+        _wardriving_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                dialog.show(); // Showing the dialog here
+              startActivity(would_you_page); // Showing the dialog here
             }
         });
 
-    }
-}
+      //localization
+       localization.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               startActivity(scanned_aps_page);
+
+           }
+       });
+
+      View mDotView = findViewById(R.id.imageView);
+
+        image_view.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                dialog.show();
+                float x = v.getX() + v.getWidth() / 2;
+                float y = v.getY() + v.getHeight() / 2;
+
+                // Create a new view to represent the dot
+                View dotView = new View(MainActivity.this);
+                dotView.setBackgroundResource(R.drawable.circle);
+                dotView.setLayoutParams(new ViewGroup.LayoutParams(24, 24));
+                dotView.setX(x - 24 / 2);
+                dotView.setY(y - 24 / 2);
+                addDot(x, y);
+
+                // Add the dot view to the layout
+                //mDotView.addView(dotView);
+
+            }
+        });
+
+//
+//        ImageButton dotView = findViewById(R.id.imageView);
+//        dotView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Add your logic here to handle the click
+//                // For example, you can add another dot at the clicked position
+//                // by creating a new View and setting its position
+//                float x = v.getX() + v.getWidth() / 2;
+//                float y = v.getY() + v.getHeight() / 2;
+//                addDot(x, y);
+//            }
+//        });
+
+
+
+    }}

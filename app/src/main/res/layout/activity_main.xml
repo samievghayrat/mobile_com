@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -69,13 +70,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView"
         android:layout_marginTop="50dp"
         android:paddingTop="20dp"
+        android:scaleType="fitXY"
         android:layout_width="400dp"
         android:layout_height="500dp"
-        android:padding="8dp"
         android:src="@drawable/mobile_computing_map"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,9 +84,21 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wardriving_button"
-
-
         app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/mobile_computing_map"
         tools:srcCompat="@drawable/mobile_computing_map" />
+
+<!--    <View-->
+<!--        android:id="@+id/dotView"-->
+<!--        android:layout_width="16dp"-->
+<!--        android:layout_marginTop="300dp"-->
+<!--        android:layout_marginLeft="50dp"-->
+<!--        android:layout_height="16dp"-->
+<!--        android:background="@color/red"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.454"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/wardriving_button"-->
+<!--        tools:layout_editor_absoluteX="124dp"-->
+<!--        tools:layout_editor_absoluteY="268dp" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
