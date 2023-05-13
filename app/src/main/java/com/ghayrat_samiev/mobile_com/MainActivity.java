@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("PhotoPicker", "No media selected");
                     }
                 });
+
+        //iamge picker
         imagePicker_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -78,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Scanning wifi
+        //Activities page
         scanned_aps_page = new Intent(MainActivity.this, Scanned_Aps.class);
         would_you_page = new Intent(MainActivity.this, popUp_would_you_like.class);
 
+        //delete image
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //would you like to scan popUp
         View inflatedView = getLayoutInflater().inflate(would_you_like_to_scan, null);
         View scan_yes = inflatedView.findViewById(R.id.scan_yes);
         scan_yes.setOnClickListener(new View.OnClickListener() {
@@ -103,19 +107,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //wardriving page
         _wardriving_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              startActivity(scanned_aps_page); // Showing the dialog here
+              startActivity(would_you_page); // Showing the dialog here
             }
         });
 
-       image_view.setOnClickListener(new View.OnClickListener(){
-           @Override
-           public void onClick(View v) {
-                dialog.show();
-           }
-       });
+      //localization
        localization.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -123,4 +123,11 @@ public class MainActivity extends AppCompatActivity {
 
            }
        });
+
+        image_view.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
 }}

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -28,36 +26,30 @@ public class Scanned_Aps extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
     private ListView wifiListView;
     private WifiManager wifiManager;
-    private List<ScanResult> wifiScanResults;
     private List<String> wifiNetworks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.scanned_aps_page);
 
-         LayoutInflater inflater = LayoutInflater.from(this); // or use your activity context
-         View _wifiListView = inflater.inflate(R.layout.scanned_aps_page, null);
+//         LayoutInflater inflater = LayoutInflater.from(this); // or use your activity context
+//         View _wifiListView = inflater.inflate(R.layout.scanned_aps_page, null);
 
-        wifiListView = _wifiListView.findViewById(R.id.listView);
+        wifiListView = findViewById(R.id.listView);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                // Permission not granted, request for it
-                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
-                        PERMISSION_REQUEST_CODE);
-            } else {
-                scanWifiNetworks();
-            }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission not granted, request for it
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSION_REQUEST_CODE);
         } else {
             scanWifiNetworks();
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -73,9 +65,12 @@ public class Scanned_Aps extends AppCompatActivity {
 
     private void scanWifiNetworks() {
         //wifiNetworks.clear();
-        wifiScanResults = wifiManager.getScanResults();
+        List<ScanResult> wifiScanResults = wifiManager.getScanResults();
 
         for (ScanResult wifiScanResult : wifiScanResults) {
+            Toast.makeText(this, wifiScanResults.size() + " WiFi networks found", Toast.LENGTH_SHORT).show();
+            Log.d("Wifi Scan", "Number of WiFi Networks Found: " + wifiScanResults.size());
+
             wifiNetworks.add( wifiScanResult.SSID + "; " + wifiScanResult.BSSID+ wifiScanResult.capabilities+"; "+wifiScanResult.frequency+" MHz; "+wifiScanResult.level+" dBm\n\n");
             Log.d("Wifi Scan", "SSID: " + wifiScanResult.SSID + "; BSSID: " + wifiScanResult.BSSID+ wifiScanResult.capabilities+"; "+wifiScanResult.frequency+" MHz; "+wifiScanResult.level+" dBm\n\n");
         }
